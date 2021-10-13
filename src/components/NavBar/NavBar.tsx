@@ -1,8 +1,17 @@
+import { Spacer } from "@chakra-ui/layout";
 import React from "react";
-import Logo from "./Logo";
+import NavBarContainer from "./NavBarContainer";
+import NavBrand from "./NavBrand";
+import NavLinks from "./NavLinks";
 
 const NavBar = () => {
-  return <Logo />;
+  return (
+    <NavBarContainer>
+      <NavBrand />
+      <Spacer />
+      <NavLinks />
+    </NavBarContainer>
+  );
 };
 
 export default NavBar;
