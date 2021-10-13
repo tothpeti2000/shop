@@ -1,7 +1,7 @@
 import React from "react";
 
-const NavBar = () => {
+const Logo = () => {
   return <h1>Hello World!</h1>;
 };
 
-export default NavBar;
+export default Logo;

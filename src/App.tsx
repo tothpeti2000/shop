@@ -42,9 +42,9 @@ const App = () => {
 
   return (
     <ChakraProvider theme={theme}>
-      <h1>Hello World!</h1>
+      {/*<h1>Hello World!</h1>
       <ColorModeSwitcher justifySelf="flex-end" />
-      {/*<VStack spacing={5}>
+      <VStack spacing={5}>
         {products.map((product) => {
           return <ProductCard {...product} />;
         })}
