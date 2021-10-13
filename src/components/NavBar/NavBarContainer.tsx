@@ -6,8 +6,7 @@ const NavBarContainer: FC = ({ children }) => {
     <Flex
       as="nav"
       align="center"
-      px="20%"
-      py="10px"
+      px="10%"
       bgColor="black"
       border="1px solid black"
       color="white"

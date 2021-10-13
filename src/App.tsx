@@ -4,6 +4,7 @@ import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import ProductCard from "./components/ProductCard/ProductCard";
 import { useEffect, useState } from "react";
 import NavBar from "./components/NavBar/NavBar";
+import Categories from "./components/Categories/Categories";
 
 const App = () => {
   const [products, setProducts] = useState([
@@ -50,6 +51,7 @@ const App = () => {
         })}
       </VStack>*/}
       <NavBar />
+      <Categories />
     </ChakraProvider>
   );
 };
