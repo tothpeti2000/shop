@@ -5,6 +5,7 @@ import ProductCard from "./components/ProductCard/ProductCard";
 import { useEffect, useState } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import Categories from "./components/Categories/Categories";
+import ChakraUI from "./ChakraUI/ChakraUI";
 
 const App = () => {
   const [products, setProducts] = useState([
@@ -49,9 +50,10 @@ const App = () => {
         {products.map((product) => {
           return <ProductCard {...product} />;
         })}
-      </VStack>*/}
+      </VStack>
       <NavBar />
-      <Categories />
+      <Categories />*/}
+      <ChakraUI />
     </ChakraProvider>
   );
 };
