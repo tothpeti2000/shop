@@ -1,5 +1,12 @@
 import * as React from "react";
-import { ChakraProvider, theme, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Center,
+  ChakraProvider,
+  theme,
+  VStack,
+} from "@chakra-ui/react";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import ProductCard from "./components/ProductCard/ProductCard";
 import { useEffect, useState } from "react";
@@ -52,6 +59,9 @@ const App = () => {
       </VStack>*/}
       <NavBar />
       <Categories />
+      <Center>
+        <Button>Check out Chakra UI components</Button>
+      </Center>
     </ChakraProvider>
   );
 };
