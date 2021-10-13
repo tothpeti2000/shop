@@ -59,9 +59,6 @@ const App = () => {
       </VStack>*/}
       <NavBar />
       <Categories />
-      <Center>
-        <Button>Check out Chakra UI components</Button>
-      </Center>
     </ChakraProvider>
   );
 };
