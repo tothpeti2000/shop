@@ -1,7 +1,8 @@
 import React from "react";
+import Logo from "./Logo";
 
 const NavBar = () => {
-  return <h1>Hello World!</h1>;
+  return <Logo />;
 };
 
 export default NavBar;
