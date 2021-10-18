@@ -1,16 +1,18 @@
-import { Box, Flex, Stack } from "@chakra-ui/layout";
-import { Link } from "@chakra-ui/react";
+import { Flex, Heading } from "@chakra-ui/layout";
+import { Box } from "@chakra-ui/react";
 import React from "react";
 import CategoryCard from "./CategoryCard";
 
 const Categories = () => {
   return (
-    <Flex h="500px" align="center" mt={2} border="1px solid black">
-      <CategoryCard>Men's collection</CategoryCard>
-      <CategoryCard>Accessories</CategoryCard>
-      <CategoryCard>Women's collection</CategoryCard>
-      <Link bgColor="grey">Hello World!</Link>
-    </Flex>
+    <Box bg="grey" color="white" p={10} textAlign="center">
+      <Heading>Shop categories</Heading>
+      <Flex p={5}>
+        <CategoryCard>Men's collection</CategoryCard>
+        <CategoryCard>Accessories</CategoryCard>
+        <CategoryCard>Women's collection</CategoryCard>
+      </Flex>
+    </Box>
   );
 };
 

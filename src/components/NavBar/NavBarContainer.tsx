@@ -10,6 +10,7 @@ const NavBarContainer: FC = ({ children }) => {
       bgColor="black"
       border="1px solid black"
       color="white"
+      sx={{ pos: "sticky", top: "0" }}
     >
       {children}
     </Flex>

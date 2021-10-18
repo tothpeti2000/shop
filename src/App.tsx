@@ -1,12 +1,5 @@
 import * as React from "react";
-import {
-  Box,
-  Button,
-  Center,
-  ChakraProvider,
-  theme,
-  VStack,
-} from "@chakra-ui/react";
+import { ChakraProvider, theme } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import ProductCard from "./components/ProductCard/ProductCard";
 import { useEffect, useState } from "react";

@@ -1,10 +1,20 @@
-import { Box } from "@chakra-ui/layout";
+import { Box, Circle, Heading, Text } from "@chakra-ui/layout";
 import React, { FC } from "react";
 
 const CategoryCard: FC = ({ children }) => {
   return (
-    <Box flex="1" textAlign="center" border="1px solid black">
-      {children}
+    <Box flex="1" textAlign="center" p={5}>
+      <Circle
+        size="300px"
+        bg="white"
+        color="black"
+        boxShadow="dark-lg"
+        m="auto"
+        mb={5}
+      >
+        <Heading>Image</Heading>
+      </Circle>
+      <Text fontSize="xl">{children}</Text>
     </Box>
   );
 };
