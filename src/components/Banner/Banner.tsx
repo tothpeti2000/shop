@@ -23,7 +23,7 @@ const Banner = () => {
           AWESOME SNEAKERS
         </Text>
         <Button
-          p={5}
+          p={8}
           fontSize={40}
           color="black"
           _hover={{ bgColor: "black", color: "white" }}

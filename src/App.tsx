@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import Categories from "./components/Categories/Categories";
 import Banner from "./components/Banner/Banner";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   const [products, setProducts] = useState([
@@ -54,6 +55,7 @@ const App = () => {
       <NavBar />
       <Banner />
       <Categories />
+      <Footer />
     </ChakraProvider>
   );
 };
