@@ -30,13 +30,6 @@ const SearchBar = () => {
       </Collapse>
     </>
   );
-  /*<InputGroup display="none">
-      <InputLeftElement
-        pointerEvents="none"
-        children={<SearchIcon color="gray.300" />}
-      />
-      <Input type="text" placeholder="Search..." />
-  </InputGroup>*/
 };
 
 export default SearchBar;

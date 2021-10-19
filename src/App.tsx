@@ -5,6 +5,7 @@ import ProductCard from "./components/ProductCard/ProductCard";
 import { useEffect, useState } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import Categories from "./components/Categories/Categories";
+import Banner from "./components/Banner/Banner";
 
 const App = () => {
   const [products, setProducts] = useState([
@@ -51,6 +52,7 @@ const App = () => {
         })}
       </VStack>*/}
       <NavBar />
+      <Banner />
       <Categories />
     </ChakraProvider>
   );

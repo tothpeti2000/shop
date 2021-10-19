@@ -7,8 +7,8 @@ const NavBarContainer: FC = ({ children }) => {
       as="nav"
       align="center"
       px="10%"
+      h="70px"
       bgColor="black"
-      border="1px solid black"
       color="white"
       sx={{ pos: "sticky", top: "0" }}
     >

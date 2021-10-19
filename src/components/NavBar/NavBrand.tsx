@@ -1,10 +1,10 @@
-import { Link, Stack } from "@chakra-ui/layout";
+import { Flex, Link } from "@chakra-ui/layout";
 import React from "react";
 import Logo from "./Logo";
 
 const NavBrand = () => {
   return (
-    <Stack direction="row" align="center">
+    <Flex align="center">
       <Logo />
       <Link
         href="#"
@@ -13,7 +13,7 @@ const NavBrand = () => {
       >
         Awesome Sneakers
       </Link>
-    </Stack>
+    </Flex>
   );
 };
 

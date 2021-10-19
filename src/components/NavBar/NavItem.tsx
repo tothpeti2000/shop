@@ -3,13 +3,8 @@ import React, { FC } from "react";
 
 const NavItem: FC = ({ children }) => {
   return (
-    <Link>
-      <Box
-        width="100px"
-        lineHeight="70px"
-        textAlign="center"
-        _hover={{ bg: "white", color: "black" }}
-      >
+    <Link _hover={{ color: "grey", textDecoration: "none" }}>
+      <Box width="100px" textAlign="center">
         {children}
       </Box>
     </Link>
