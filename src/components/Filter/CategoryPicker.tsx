@@ -8,10 +8,11 @@ const CategoryPicker = () => {
   return (
     <RadioGroup onChange={setValue} value={value}>
       <Stack>
-        <Radio value="1">Men's clothing</Radio>
-        <Radio value="2">Women's clothing</Radio>
-        <Radio value="3">Jewelery</Radio>
-        <Radio value="4">Electronics</Radio>
+        <Radio value="1">Show all</Radio>
+        <Radio value="2">Men's clothing</Radio>
+        <Radio value="3">Women's clothing</Radio>
+        <Radio value="4">Jewelery</Radio>
+        <Radio value="5">Electronics</Radio>
       </Stack>
     </RadioGroup>
   );

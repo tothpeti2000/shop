@@ -3,15 +3,18 @@ import React from "react";
 import ProductList from "../ProductList/ProductList";
 import Filter from "../Filter/Filter";
 import FilterHeader from "./FilterHeader";
+import { ProductListProvider } from "../../ProductListContext";
 
 const ProductPicker = () => {
   return (
     <Flex direction="column" p={10}>
-      <FilterHeader />
-      <Flex>
-        <Filter />
-        <ProductList />
-      </Flex>
+      <ProductListProvider>
+        <FilterHeader />
+        <Flex>
+          <Filter />
+          <ProductList />
+        </Flex>
+      </ProductListProvider>
     </Flex>
   );
 };

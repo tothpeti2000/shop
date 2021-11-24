@@ -1,13 +1,14 @@
 import { Flex, Heading, Select } from "@chakra-ui/react";
 import React, { ChangeEvent, useState } from "react";
+import { useProductListContext } from "../../ProductListContext";
 
 const FilterHeader = () => {
-  const [selectedOption, SetSelectedOption] = useState("");
+  const [selectedOption, SetSelectedOption] = useState<string>("");
+  const { SortProducts } = useProductListContext();
 
   const HandleSelection = (e: ChangeEvent<HTMLSelectElement>) => {
     SetSelectedOption(e.target.value);
-    console.log(e.target);
-    alert(selectedOption);
+    SortProducts(selectedOption);
   };
 
   return (
@@ -16,7 +17,7 @@ const FilterHeader = () => {
       <Select
         placeholder="Sort by"
         value={selectedOption}
-        onChange={(e) => HandleSelection(e)}
+        onChange={HandleSelection}
         w="20%"
         borderColor="black"
       >

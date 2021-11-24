@@ -2,17 +2,19 @@ import { Box, Flex } from "@chakra-ui/layout";
 import { Skeleton } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import IProduct from "../../interfaces/IProduct";
+import { useProductListContext } from "../../ProductListContext";
 import ProductListItem from "./ProductListItem";
 
 const ProductList = () => {
-  const [products, setProducts] = useState<IProduct[]>([]);
+  //const [products, setProducts] = useState<IProduct[]>([]);
+  const { products, InitProducts } = useProductListContext();
   const [isLoaded, setIsLoaded] = useState(false);
 
   const FetchProducts = async () => {
     const data = await fetch("https://fakestoreapi.com/products");
     const items = await data.json();
 
-    setProducts(items);
+    InitProducts(items);
     setIsLoaded(true);
   };
 
