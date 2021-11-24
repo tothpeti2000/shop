@@ -58,8 +58,8 @@ const App = () => {
         })}
       </VStack>*/}
       <OrderItemProvider>
-        <NavBar />
         <Router>
+          <NavBar />
           <Switch>
             <Route exact path="/">
               <Home />

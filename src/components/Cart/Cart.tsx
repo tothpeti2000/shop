@@ -1,16 +1,14 @@
 import { useDisclosure } from "@chakra-ui/hooks";
 import {
-  Drawer,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
-  DrawerHeader,
-  DrawerBody,
-  DrawerFooter,
-} from "@chakra-ui/modal";
-import {
   Badge,
   Button,
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
   Heading,
   Icon,
   IconButton,

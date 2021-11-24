@@ -1,5 +1,5 @@
 import { Box, Flex } from "@chakra-ui/layout";
-import { Skeleton } from "@chakra-ui/skeleton";
+import { Skeleton } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import IProduct from "../../interfaces/IProduct";
 import ProductListItem from "./ProductListItem";
@@ -21,26 +21,21 @@ const ProductList = () => {
   }, []);
 
   return (
-    <Flex>
-      <Box bgColor="lightgrey" flex="1" h="100vh" me={2}>
-        Hello World!
-      </Box>
-      <Skeleton isLoaded={isLoaded} flex="3">
-        <Flex wrap="wrap" justifyContent="space-around">
-          {products.map((p) => {
-            return (
-              <ProductListItem
-                key={p.id}
-                id={p.id}
-                image={p.image}
-                title={p.title}
-                price={p.price}
-              />
-            );
-          })}
-        </Flex>
-      </Skeleton>
-    </Flex>
+    <Skeleton isLoaded={isLoaded} flex="3">
+      <Flex wrap="wrap" justifyContent="space-around">
+        {products.map((p) => {
+          return (
+            <ProductListItem
+              key={p.id}
+              id={p.id}
+              image={p.image}
+              title={p.title}
+              price={p.price}
+            />
+          );
+        })}
+      </Flex>
+    </Skeleton>
   );
 };
 

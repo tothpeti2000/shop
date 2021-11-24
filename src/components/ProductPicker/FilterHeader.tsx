@@ -5,10 +5,11 @@ const FilterHeader = () => {
   return (
     <Flex justifyContent="space-between" alignItems="center" mb={5}>
       <Heading w="20%">Filter by</Heading>
-      <Select placeholder="Sort by" w="20%">
-        <option value="option1">Option 1</option>
-        <option value="option2">Option 2</option>
-        <option value="option3">Option 3</option>
+      <Select placeholder="Sort by" w="20%" borderColor="black">
+        <option value="priceLTH">Price (low to high)</option>
+        <option value="priceHTL">Price (high to low)</option>
+        <option value="nameAZ">Name A-Z</option>
+        <option value="nameZA">Name Z-A</option>
       </Select>
     </Flex>
   );

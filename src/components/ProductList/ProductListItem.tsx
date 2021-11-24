@@ -32,17 +32,18 @@ const ProductListItem = (props: IProductListItem) => {
       mb={20}
       _hover={{ boxShadow: "dark-lg" }}
       transition="0.5s"
-      border="1px solid black"
+      border="1px solid lightgrey"
+      borderRadius={10}
     >
-      <Image src={props.image} alt="Product" border="1px solid black" />
-      <Box border="1px solid black">
+      <Image src={props.image} alt="Product" /*border="1px solid black"*/ />
+      <Box>
         <Text fontWeight="bold">{props.title}</Text>
         <Text>{`$${props.price}`}</Text>
-      </Box>
 
-      <Button colorScheme="red" onClick={OnClick}>
-        Add to cart
-      </Button>
+        <Button colorScheme="red" w="100%" onClick={OnClick}>
+          Add to cart
+        </Button>
+      </Box>
     </Flex>
   );
 };
