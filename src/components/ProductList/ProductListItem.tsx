@@ -1,5 +1,6 @@
 import { Box, Button, Flex, Image, Text, useToast } from "@chakra-ui/react";
 import React from "react";
+import { Link } from "react-router-dom";
 import IProductListItem from "../../interfaces/IProductListItem";
 import { useOrderItemContext } from "../../OrderItemContext";
 
@@ -35,7 +36,9 @@ const ProductListItem = (props: IProductListItem) => {
       border="1px solid lightgrey"
       borderRadius={10}
     >
-      <Image src={props.image} alt="Product" /*border="1px solid black"*/ />
+      <Link to={`/products/${props.id}`}>
+        <Image src={props.image} alt="Product" /*border="1px solid black"*/ />
+      </Link>
       <Box>
         <Text fontWeight="bold">{props.title}</Text>
         <Text>{`$${props.price}`}</Text>

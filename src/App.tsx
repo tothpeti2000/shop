@@ -11,6 +11,7 @@ import Footer from "./components/Footer/Footer";
 import IProduct from "./interfaces/IProduct";
 import { OrderItemProvider } from "./OrderItemContext";
 import ProductPicker from "./components/ProductPicker/ProductPicker";
+import ProductDetails from "./components/ProductDetails/ProductDetails";
 
 const App = () => {
   /*const [products, setProducts] = useState([
@@ -64,8 +65,11 @@ const App = () => {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/products">
+            <Route exact path="/products">
               <ProductPicker />
+            </Route>
+            <Route path="/products/:id">
+              <ProductDetails />
             </Route>
           </Switch>
         </Router>
