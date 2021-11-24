@@ -3,24 +3,17 @@ import React, { ChangeEvent, useState } from "react";
 import { useProductListContext } from "../../ProductListContext";
 
 const FilterHeader = () => {
-  const [selectedOption, SetSelectedOption] = useState<string>("");
-  const { SortProducts } = useProductListContext();
+  const { UpdateSortType } = useProductListContext();
 
   const HandleSelection = (e: ChangeEvent<HTMLSelectElement>) => {
-    SetSelectedOption(e.target.value);
-    SortProducts(selectedOption);
+    UpdateSortType(e.target.value);
   };
 
   return (
     <Flex justifyContent="space-between" alignItems="center" mb={5}>
       <Heading w="20%">Filter by</Heading>
-      <Select
-        placeholder="Sort by"
-        value={selectedOption}
-        onChange={HandleSelection}
-        w="20%"
-        borderColor="black"
-      >
+      <Select onChange={HandleSelection} w="20%" borderColor="black">
+        <option value="none">Sort by</option>
         <option value="priceLTH">Price (low to high)</option>
         <option value="priceHTL">Price (high to low)</option>
         <option value="nameAZ">Name A-Z</option>
