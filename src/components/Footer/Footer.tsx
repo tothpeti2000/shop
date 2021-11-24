@@ -1,20 +1,28 @@
-import { Box, Heading } from "@chakra-ui/layout";
+import { Heading, Text } from "@chakra-ui/layout";
 import { Flex } from "@chakra-ui/react";
 import React from "react";
 import Details from "./Details";
-import Form from "./Form";
+import Social from "./Social";
+import Form from "./SubscriptionForm";
 
 const Footer = () => {
-  const bgImage = `${process.env.PUBLIC_URL}/images/footer.jpg`;
-
   return (
-    <Box h="500px" bgImage={bgImage} color="white">
-      <Heading>Logo</Heading>
-      <Flex w="80%" justify="space-between" border="1px solid white">
+    <Flex
+      direction="column"
+      h="350px"
+      align="center"
+      justify="space-around"
+      bgGradient="linear(to-b, gray.900, black)"
+      color="white"
+    >
+      <Heading fontSize={80}>Logo</Heading>
+      <Flex w="80%">
         <Details />
+        <Social />
         <Form />
       </Flex>
-    </Box>
+      <Text>Awesome Sneakers</Text>
+    </Flex>
   );
 };
 

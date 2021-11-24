@@ -3,7 +3,7 @@ import { Image } from "@chakra-ui/image";
 import { Badge, Center, Code, HStack, Text, VStack } from "@chakra-ui/layout";
 import { useToast } from "@chakra-ui/toast";
 import React from "react";
-import Product from "./Product";
+import Product from "../../interfaces/IProduct";
 
 const ProductCard = (props: Product) => {
   //const imgSrc = "https://picsum.photos/500";

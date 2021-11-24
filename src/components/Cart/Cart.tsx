@@ -8,39 +8,30 @@ import {
   DrawerBody,
   DrawerFooter,
 } from "@chakra-ui/modal";
-import { Button, Heading, Icon, IconButton } from "@chakra-ui/react";
-import React, { useState } from "react";
+import {
+  Badge,
+  Button,
+  Heading,
+  Icon,
+  IconButton,
+  useToast,
+} from "@chakra-ui/react";
+import React, { useContext, useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import CartItem from "./CartItem";
-
-export interface Product {
-  id: number;
-  name: String;
-  price: number;
-  quantity: number;
-}
+import ICartItem from "../../interfaces/ICartItem";
+import { OrderItemProvider, useOrderItemContext } from "../../OrderItemContext";
+import { OrderItemContext } from "../../OrderItemContext";
 
 const Cart = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [items, SetItems] = useState<Product[]>([]);
+  const { orderItems, AddItem } = useOrderItemContext();
   const [ID, SetID] = useState(0);
-
-  const AddItem = () => {
-    const product = {
-      id: ID,
-      name: `Product #${ID + 1}`,
-      price: 1000,
-      quantity: 1,
-    };
-
-    SetItems(items.concat(product));
-    SetID(ID + 1);
-  };
 
   const GetSum = () => {
     let sum = 0;
 
-    items.forEach((item) => (sum += item.price));
+    orderItems.forEach((item) => (sum += item.price));
 
     return sum;
   };
@@ -55,6 +46,7 @@ const Cart = () => {
       >
         Open
       </IconButton>
+      <Badge>{orderItems.length}</Badge>
       <Drawer isOpen={isOpen} placement="right" size="sm" onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent textAlign="center">
@@ -64,13 +56,13 @@ const Cart = () => {
           </DrawerHeader>
 
           <DrawerBody>
-            {items.length > 0
-              ? items.map((item) => {
+            {orderItems.length > 0
+              ? orderItems.map((item) => {
                   return (
                     <CartItem
                       key={item.id}
                       id={item.id}
-                      name={item.name}
+                      title={item.title}
                       price={item.price}
                       quantity={item.quantity}
                     />
@@ -80,10 +72,9 @@ const Cart = () => {
           </DrawerBody>
 
           <DrawerFooter>
-            <Heading>{items.length > 0 ? `Total: ${GetSum()}$` : ""}</Heading>
-            <Button colorScheme="teal" onClick={AddItem}>
-              +
-            </Button>
+            <Heading>
+              {orderItems.length > 0 ? `Total: ${GetSum()}$` : ""}
+            </Heading>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>

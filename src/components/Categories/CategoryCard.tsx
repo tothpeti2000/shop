@@ -1,7 +1,11 @@
 import { Box, Circle, Heading, Link, Text } from "@chakra-ui/layout";
-import React, { FC } from "react";
+import React from "react";
 
-const CategoryCard: FC = ({ children }) => {
+interface IProps {
+  title: string;
+}
+
+const CategoryCard = (props: IProps) => {
   return (
     <Box flex="1" textAlign="center" p={5}>
       <Link href="#">
@@ -16,7 +20,7 @@ const CategoryCard: FC = ({ children }) => {
           <Heading>Image</Heading>
         </Circle>
       </Link>
-      <Text fontSize="xl">{children}</Text>
+      <Text fontSize="xl">{props.title}</Text>
     </Box>
   );
 };

@@ -1,15 +1,19 @@
 import * as React from "react";
-import { ChakraProvider, theme } from "@chakra-ui/react";
+import { Box, ChakraProvider, theme } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
-import ProductCard from "./components/ProductCard/ProductCard";
 import { useEffect, useState } from "react";
+import Home from "./components/Home";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ContactForm from "./components/ContactForm/ContactForm";
 import NavBar from "./components/NavBar/NavBar";
-import Categories from "./components/Categories/Categories";
-import Banner from "./components/Banner/Banner";
+import ProductList from "./components/ProductList/ProductList";
 import Footer from "./components/Footer/Footer";
+import IProduct from "./interfaces/IProduct";
+import { OrderItemProvider } from "./OrderItemContext";
+import ProductPicker from "./components/ProductPicker/ProductPicker";
 
 const App = () => {
-  const [products, setProducts] = useState([
+  /*const [products, setProducts] = useState([
     {
       title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
       price: 109.95,
@@ -29,7 +33,7 @@ const App = () => {
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
       rating: 10,
     },
-  ]);
+  ]);*/
 
   /*useEffect(() => {
     const GetProducts = async () => {
@@ -41,7 +45,8 @@ const App = () => {
     };
 
     GetProducts();
-  }, []);*/
+  }, []);
+  }*/
 
   return (
     <ChakraProvider theme={theme}>
@@ -52,9 +57,19 @@ const App = () => {
           return <ProductCard {...product} />;
         })}
       </VStack>*/}
-      <NavBar />
-      <Banner />
-      <Categories />
+      <OrderItemProvider>
+        <NavBar />
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/products">
+              <ProductPicker />
+            </Route>
+          </Switch>
+        </Router>
+      </OrderItemProvider>
       <Footer />
     </ChakraProvider>
   );
