@@ -49,7 +49,7 @@ const ProductDetails = () => {
           </Box>
           <Text fontSize="lg">{product.description}</Text>
           <Box>
-            <Box w="20%">
+            <Box w="20%" mb={2}>
               Quantity:
               <QuantityPicker />
             </Box>

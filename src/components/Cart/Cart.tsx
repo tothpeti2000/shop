@@ -14,16 +14,15 @@ import {
   IconButton,
   useToast,
 } from "@chakra-ui/react";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import CartItem from "./CartItem";
-import ICartItem from "../../interfaces/ICartItem";
-import { OrderItemProvider, useOrderItemContext } from "../../OrderItemContext";
-import { OrderItemContext } from "../../OrderItemContext";
+import { useOrderItemContext } from "../../OrderItemContext";
+import Summary from "./Summary";
 
 const Cart = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { orderItems, AddItem } = useOrderItemContext();
+  const { orderItems } = useOrderItemContext();
   const [ID, SetID] = useState(0);
 
   const GetSum = () => {
@@ -70,9 +69,7 @@ const Cart = () => {
           </DrawerBody>
 
           <DrawerFooter>
-            <Heading>
-              {orderItems.length > 0 ? `Total: ${GetSum()}$` : ""}
-            </Heading>
+            <Summary total={GetSum()} />
           </DrawerFooter>
         </DrawerContent>
       </Drawer>

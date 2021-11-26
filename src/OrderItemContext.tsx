@@ -6,11 +6,7 @@ const useOrderItemContextValue = () => {
   const [orderItems, setOrderItems] = useState<ICartItem[]>([]);
 
   const AddItem = (id: number, title: string, price: number) => {
-    const item: ICartItem = {
-      id: id,
-      title: title,
-      price: price,
-    };
+    const item: ICartItem = { id, title, price };
 
     setOrderItems([...orderItems, item]);
   };
