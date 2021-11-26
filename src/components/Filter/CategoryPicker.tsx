@@ -1,17 +1,19 @@
 import { Stack } from "@chakra-ui/layout";
 import { RadioGroup, Radio } from "@chakra-ui/radio";
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { useProductListContext } from "../../ProductListContext";
 
 const CategoryPicker = () => {
+  const [value, setValue] = useState("all");
   const { UpdateFilterType } = useProductListContext();
 
   const HandleChange = (e: ChangeEvent<HTMLInputElement>) => {
     UpdateFilterType(e.target.value);
+    setValue(e.target.value);
   };
 
   return (
-    <RadioGroup>
+    <RadioGroup value={value}>
       <Stack>
         <Radio value="all" onChange={HandleChange}>
           Show all
