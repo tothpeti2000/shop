@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import IParams from "../../interfaces/IParams";
 import IProduct from "../../interfaces/IProduct";
 import QuantityPicker from "../Cart/QuantityPicker";
+import AddToCartButton from "../ProductList/AddToCartButton";
 import RatingStars from "./RatingStars";
 
 const ProductDetails = () => {
@@ -52,9 +53,11 @@ const ProductDetails = () => {
               Quantity:
               <QuantityPicker />
             </Box>
-            <Button w="100%" colorScheme="red" mt={2}>
-              Add to cart
-            </Button>
+            <AddToCartButton
+              id={product.id}
+              title={product.title}
+              price={product.price}
+            />
           </Box>
         </Flex>
       </Flex>
