@@ -4,33 +4,36 @@ import IProduct from "./interfaces/IProduct";
 const useProductListContextValue = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [allProducts, setAllProducts] = useState<IProduct[]>([]);
-  const [sortedAllProducts, setSortedAllProducts] = useState<IProduct[]>([]);
-  let filterType = "all";
-  let sortType = "none";
 
   const InitProducts = (products: IProduct[]) => {
     setProducts(products);
     setAllProducts(products);
-    setSortedAllProducts(products);
+    localStorage.setItem("filterType", "all");
+    localStorage.setItem("sortType", "none");
   };
 
-  const SortProducts = () => {
-    let sortedProducts = [...allProducts];
+  const UpdateProducts = () => {
+    const filterType = localStorage.getItem("filterType");
+    const sortType = localStorage.getItem("sortType");
+
+    let filtered = [...allProducts].filter(
+      (p) => p.category === filterType || filterType === "all"
+    );
 
     if (sortType === "priceLTH") {
-      sortedProducts.sort((p1, p2) => {
+      filtered = filtered.sort((p1, p2) => {
         return p1.price - p2.price;
       });
     }
 
     if (sortType === "priceHTL") {
-      sortedProducts.sort((p1, p2) => {
+      filtered = filtered.sort((p1, p2) => {
         return p2.price - p1.price;
       });
     }
 
     if (sortType === "nameAZ") {
-      sortedProducts.sort((p1, p2) => {
+      filtered = filtered.sort((p1, p2) => {
         const p1Name = p1.title.toLowerCase();
         const p2Name = p2.title.toLowerCase();
 
@@ -47,7 +50,7 @@ const useProductListContextValue = () => {
     }
 
     if (sortType === "nameZA") {
-      sortedProducts.sort((p1, p2) => {
+      filtered = filtered.sort((p1, p2) => {
         const p1Name = p1.title.toLowerCase();
         const p2Name = p2.title.toLowerCase();
 
@@ -63,39 +66,22 @@ const useProductListContextValue = () => {
       });
     }
 
-    setSortedAllProducts(sortedProducts);
-    FilterProducts();
-  };
-
-  const FilterProducts = () => {
-    let filteredProducts = [...sortedAllProducts];
-
-    if (filterType != "all") {
-      filteredProducts = filteredProducts.filter(
-        (p) => p.category === filterType
-      );
-    }
-
-    console.log(filteredProducts);
-
-    setProducts(filteredProducts);
+    setProducts(filtered);
   };
 
   const UpdateSortType = (type: string) => {
-    sortType = type;
-    SortProducts();
+    localStorage.setItem("sortType", type);
+    UpdateProducts();
   };
 
   const UpdateFilterType = (type: string) => {
-    filterType = type;
-    SortProducts();
+    localStorage.setItem("filterType", type);
+    UpdateProducts();
   };
 
   return {
     products,
     InitProducts,
-    SortProducts,
-    FilterProducts,
     UpdateSortType,
     UpdateFilterType,
   };
