@@ -69,7 +69,7 @@ const Cart = () => {
           </DrawerBody>
 
           <DrawerFooter>
-            <Summary total={GetSum()} />
+            <Summary total={GetSum()} onClick={onClose} />
           </DrawerFooter>
         </DrawerContent>
       </Drawer>

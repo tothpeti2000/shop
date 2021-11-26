@@ -13,6 +13,7 @@ import { OrderItemProvider } from "./OrderItemContext";
 import ProductPicker from "./components/ProductPicker/ProductPicker";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
 import { ProductListProvider } from "./ProductListContext";
+import Checkout from "./components/Checkout/Checkout";
 
 const App = () => {
   /*const [products, setProducts] = useState([
@@ -73,6 +74,9 @@ const App = () => {
               <ProductListProvider>
                 <ProductDetails />
               </ProductListProvider>
+            </Route>
+            <Route path="/checkout">
+              <Checkout />
             </Route>
           </Switch>
         </Router>
