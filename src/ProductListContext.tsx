@@ -13,12 +13,22 @@ const useProductListContextValue = () => {
   };
 
   const UpdateProducts = () => {
-    const filterType = localStorage.getItem("filterType");
-    const sortType = localStorage.getItem("sortType");
+    const filtered = FilterProducts();
+    const sorted = SortProducts(filtered);
 
-    let filtered = [...allProducts].filter(
+    setProducts(sorted);
+  };
+
+  const FilterProducts = () => {
+    const filterType = localStorage.getItem("filterType");
+
+    return [...allProducts].filter(
       (p) => p.category === filterType || filterType === "all"
     );
+  };
+
+  const SortProducts = (filtered: IProduct[]) => {
+    const sortType = localStorage.getItem("sortType");
 
     if (sortType === "priceLTH") {
       filtered = filtered.sort((p1, p2) => {
@@ -66,7 +76,7 @@ const useProductListContextValue = () => {
       });
     }
 
-    setProducts(filtered);
+    return [...filtered];
   };
 
   const UpdateSortType = (type: string) => {
