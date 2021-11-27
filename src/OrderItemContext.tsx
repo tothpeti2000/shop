@@ -1,14 +1,23 @@
 import React, { createContext, FC, useContext, useState } from "react";
 import ICartItem from "./interfaces/ICartItem";
-import IProduct from "./interfaces/IProduct";
 
 const useOrderItemContextValue = () => {
   const [orderItems, setOrderItems] = useState<ICartItem[]>([]);
 
   const AddItem = (id: number, title: string, price: number) => {
-    const item: ICartItem = { id, title, price };
+    const items = orderItems.filter((orderItem) => orderItem.id === id);
 
-    setOrderItems([...orderItems, item]);
+    if (items.length == 0) {
+      const item: ICartItem = { id, title, price, quantity: 1 };
+
+      setOrderItems([...orderItems, item]);
+    } else {
+      const copy = [...orderItems];
+      const idx = copy.indexOf(items[0]);
+      copy[idx].quantity++;
+
+      setOrderItems(copy);
+    }
   };
 
   const DeleteItem = (id: number) => {
@@ -26,10 +35,30 @@ const useOrderItemContextValue = () => {
     setOrderItems(newOrderItems);
   };
 
+  const GetItemQuantity = (ID: number): number => {
+    for (let i = 0; i < orderItems.length; i++) {
+      if (orderItems[i].id === ID) {
+        return orderItems[i].quantity;
+      }
+    }
+
+    return 0;
+  };
+
+  const UpdateItemQuantity = (ID: number, quantity: number) => {
+    for (let i = 0; i < orderItems.length; i++) {
+      if (orderItems[i].id === ID) {
+        orderItems[i].quantity = quantity;
+      }
+    }
+  };
+
   return {
     orderItems,
     AddItem,
     DeleteItem,
+    UpdateItemQuantity,
+    GetItemQuantity,
   };
 };
 

@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import IParams from "../../interfaces/IParams";
 import IProduct from "../../interfaces/IProduct";
+import { useOrderItemContext } from "../../OrderItemContext";
 import QuantityPicker from "../Cart/QuantityPicker";
 import AddToCartButton from "../ProductList/AddToCartButton";
 import RatingStars from "./RatingStars";
@@ -21,6 +22,7 @@ const ProductDetails = () => {
     title: "",
     rating: { count: 0, rate: 0 },
   });
+  const { GetItemQuantity } = useOrderItemContext();
   const [isLoaded, setIsLoaded] = useState(false);
 
   const FetchProduct = async () => {
@@ -49,9 +51,8 @@ const ProductDetails = () => {
           </Box>
           <Text fontSize="lg">{product.description}</Text>
           <Box>
-            <Box w="20%" mb={2}>
-              Quantity:
-              <QuantityPicker />
+            <Box fontSize="lg" mb={2}>
+              In cart: {GetItemQuantity(parseInt(ID))}
             </Box>
             <AddToCartButton
               id={product.id}
