@@ -1,5 +1,5 @@
 import { Button } from "@chakra-ui/button";
-import { Box, Flex, Heading, Square } from "@chakra-ui/layout";
+import { Box, Flex } from "@chakra-ui/layout";
 import { Text } from "@chakra-ui/react";
 import React from "react";
 import ICartItem from "../../interfaces/ICartItem";

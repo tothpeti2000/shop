@@ -1,8 +1,7 @@
-import { Box, Button, Flex, Image, Text, useToast } from "@chakra-ui/react";
+import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
 import IProductListItem from "../../interfaces/IProductListItem";
-import { useOrderItemContext } from "../../OrderItemContext";
 import AddToCartButton from "./AddToCartButton";
 
 const ProductListItem = (props: IProductListItem) => {

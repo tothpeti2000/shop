@@ -16,9 +16,10 @@ const Categories = () => {
       <Heading>Shop categories</Heading>
       <Fade>
         <Flex p={5}>
-          <CategoryCard title="Men's collection" />
-          <CategoryCard title="Accessories" />
-          <CategoryCard title="Women's collection" />
+          <CategoryCard>Men's collection</CategoryCard>
+          <CategoryCard>Accessories</CategoryCard>
+          <CategoryCard>Women's collection</CategoryCard>
+          <CategoryCard>Electronics</CategoryCard>
         </Flex>
       </Fade>
     </Box>

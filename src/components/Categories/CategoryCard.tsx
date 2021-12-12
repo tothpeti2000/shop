@@ -1,26 +1,15 @@
-import { Box, Circle, Heading, Link, Text } from "@chakra-ui/layout";
-import React from "react";
+import { Box, Text } from "@chakra-ui/layout";
+import React, { FC } from "react";
+import { Link } from "react-router-dom";
+import PlaceHolder from "./PlaceHolder";
 
-interface IProps {
-  title: string;
-}
-
-const CategoryCard = (props: IProps) => {
+const CategoryCard: FC = ({ children }) => {
   return (
     <Box flex="1" textAlign="center" p={5}>
-      <Link href="#">
-        <Circle
-          size="300px"
-          bg="white"
-          color="black"
-          boxShadow="dark-lg"
-          m="auto"
-          mb={5}
-        >
-          <Heading>Image</Heading>
-        </Circle>
+      <Link to="/products">
+        <PlaceHolder />
+        <Text fontSize="xl">{children}</Text>
       </Link>
-      <Text fontSize="xl">{props.title}</Text>
     </Box>
   );
 };

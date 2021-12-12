@@ -1,7 +1,6 @@
-import { Box, Flex } from "@chakra-ui/layout";
+import { Flex } from "@chakra-ui/layout";
 import { Skeleton } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import IProduct from "../../interfaces/IProduct";
 import { useProductListContext } from "../../ProductListContext";
 import ProductListItem from "./ProductListItem";
 

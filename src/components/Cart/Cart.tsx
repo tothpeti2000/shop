@@ -1,7 +1,6 @@
 import { useDisclosure } from "@chakra-ui/hooks";
 import {
   Badge,
-  Button,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -9,29 +8,19 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
-  Heading,
   Icon,
   IconButton,
-  useToast,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React from "react";
 import { FaShoppingCart } from "react-icons/fa";
-import CartItem from "./CartItem";
 import { useOrderItemContext } from "../../OrderItemContext";
+import GetSum from "../../Utils";
+import CartItem from "./CartItem";
 import Summary from "./Summary";
 
 const Cart = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { orderItems } = useOrderItemContext();
-  const [ID, SetID] = useState(0);
-
-  const GetSum = () => {
-    let sum = 0;
-
-    orderItems.forEach((item) => (sum += item.price));
-
-    return sum;
-  };
 
   return (
     <>
@@ -44,6 +33,7 @@ const Cart = () => {
         Open
       </IconButton>
       <Badge>{orderItems.length}</Badge>
+
       <Drawer isOpen={isOpen} placement="right" size="sm" onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent textAlign="center">
@@ -69,7 +59,7 @@ const Cart = () => {
           </DrawerBody>
 
           <DrawerFooter>
-            <Summary total={GetSum()} onClick={onClose} />
+            <Summary total={GetSum(orderItems)} onClick={onClose} />
           </DrawerFooter>
         </DrawerContent>
       </Drawer>

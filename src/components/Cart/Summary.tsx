@@ -1,27 +1,27 @@
 import { Button } from "@chakra-ui/button";
-import { Heading } from "@chakra-ui/react";
+import { Box, Flex, Heading } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
+import ISummaryProps from "../../interfaces/ISummaryProps";
 
-interface IProps {
-  total: number;
-  onClick: () => void;
-}
-
-const Summary = (props: IProps) => {
+const Summary = (props: ISummaryProps) => {
   return (
-    <>
+    <Box w="100%">
       {props.total > 0 ? (
-        <>
+        <Flex direction="column" align="start">
           <Heading>Total: {props.total}$</Heading>
-          <Link to="/checkout">
-            <Button onClick={props.onClick}>Checkout</Button>
-          </Link>
-        </>
+          <Button
+            alignSelf="stretch"
+            colorScheme="teal"
+            onClick={props.onClick}
+          >
+            <Link to="/checkout">Checkout</Link>
+          </Button>
+        </Flex>
       ) : (
         <></>
       )}
-    </>
+    </Box>
   );
 };
 
