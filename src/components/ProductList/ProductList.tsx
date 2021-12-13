@@ -22,7 +22,7 @@ const ProductList = () => {
   }, []);
 
   return (
-    <Skeleton isLoaded={isLoaded} flex="3">
+    <Skeleton isLoaded={isLoaded} flex="3" minH="100vh">
       <Flex wrap="wrap" justifyContent="space-around">
         {products.map((p) => {
           return (

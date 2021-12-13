@@ -1,10 +1,11 @@
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
+import IProduct from "../../interfaces/IProduct";
 import IProductListItem from "../../interfaces/IProductListItem";
 import AddToCartButton from "./AddToCartButton";
 
-const ProductListItem = (props: IProductListItem) => {
+const ProductListItem = (props: IProduct) => {
   return (
     <Flex
       direction="column"
@@ -24,11 +25,7 @@ const ProductListItem = (props: IProductListItem) => {
       <Box>
         <Text fontWeight="bold">{props.title}</Text>
         <Text>{`$${props.price}`}</Text>
-        <AddToCartButton
-          id={props.id}
-          title={props.title}
-          price={props.price}
-        />
+        <AddToCartButton {...props} />
       </Box>
     </Flex>
   );

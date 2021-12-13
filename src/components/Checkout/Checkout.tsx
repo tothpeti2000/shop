@@ -1,21 +1,21 @@
-import { Box } from "@chakra-ui/layout";
+import { Box, Flex } from "@chakra-ui/layout";
 import React from "react";
 import { useOrderItemContext } from "../../OrderItemContext";
+import CartSummary from "./CartSummary";
 
 const Checkout = () => {
   const { orderItems } = useOrderItemContext();
 
   return (
-    <Box h="calc(100vh - 100px)">
-      {orderItems.map((item) => {
-        return (
-          <>
-            <h1>{item.title}</h1>
-            <h2>{item.quantity}</h2>
-          </>
-        );
-      })}
-    </Box>
+    <Flex
+      justifyContent="space-between"
+      minH="calc(100vh - 100px)"
+      px="10%"
+      border="1px solid black"
+    >
+      <CartSummary orderItems={orderItems} />
+      <Box border="1px solid black">Order Summary</Box>
+    </Flex>
   );
 };
 

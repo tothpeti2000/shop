@@ -45,15 +45,7 @@ const Cart = () => {
           <DrawerBody>
             {orderItems.length > 0
               ? orderItems.map((item) => {
-                  return (
-                    <CartItem
-                      key={item.id}
-                      id={item.id}
-                      title={item.title}
-                      price={item.price}
-                      quantity={item.quantity}
-                    />
-                  );
+                  return <CartItem key={item.id} {...item} />;
                 })
               : "Cart is empty"}
           </DrawerBody>

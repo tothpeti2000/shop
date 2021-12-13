@@ -6,7 +6,13 @@ import PriceRangePicker from "./PriceRangePicker";
 
 const Filter = () => {
   return (
-    <Box flex="1" h="100vh" me={2} border="1px solid grey" borderRadius={10}>
+    <Box
+      flex="1"
+      alignSelf="start"
+      me={2}
+      border="1px solid grey"
+      borderRadius={10}
+    >
       <FilterItem title="Price">
         <PriceRangePicker />
       </FilterItem>

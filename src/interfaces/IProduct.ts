@@ -8,6 +8,7 @@ interface IProduct {
   price: number;
   rating: Rating;
   title: string;
+  quantity: number;
 }
 
 export default IProduct;

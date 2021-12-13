@@ -51,6 +51,8 @@ const useOrderItemContextValue = () => {
         orderItems[i].quantity = quantity;
       }
     }
+
+    setOrderItems([...orderItems]);
   };
 
   return {

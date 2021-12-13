@@ -1,5 +1,6 @@
-import { useToast, Button } from "@chakra-ui/react";
+import { useToast, Button, Icon } from "@chakra-ui/react";
 import React from "react";
+import { FaCartPlus } from "react-icons/fa";
 import { useOrderItemContext } from "../../OrderItemContext";
 
 interface Props {
@@ -28,7 +29,12 @@ const AddToCartButton = (props: Props) => {
   };
 
   return (
-    <Button colorScheme="red" w="100%" onClick={OnClick}>
+    <Button
+      colorScheme="red"
+      w="100%"
+      leftIcon={<Icon as={FaCartPlus} />}
+      onClick={OnClick}
+    >
       Add to cart
     </Button>
   );
