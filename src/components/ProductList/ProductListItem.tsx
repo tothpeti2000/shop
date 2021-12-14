@@ -2,7 +2,6 @@ import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
 import IProduct from "../../interfaces/IProduct";
-import IProductListItem from "../../interfaces/IProductListItem";
 import AddToCartButton from "./AddToCartButton";
 
 const ProductListItem = (props: IProduct) => {

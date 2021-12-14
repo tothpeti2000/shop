@@ -1,20 +1,15 @@
+import { ChakraProvider, theme } from "@chakra-ui/react";
 import * as React from "react";
-import { Box, ChakraProvider, theme } from "@chakra-ui/react";
-import { ColorModeSwitcher } from "./ColorModeSwitcher";
-import { useEffect, useState } from "react";
-import Home from "./components/Home";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import ContactForm from "./components/ContactForm/ContactForm";
-import NavBar from "./components/NavBar/NavBar";
-import ProductList from "./components/ProductList/ProductList";
-import Footer from "./components/Footer/Footer";
-import IProduct from "./interfaces/IProduct";
-import { OrderItemProvider } from "./OrderItemContext";
-import ProductPicker from "./components/ProductPicker/ProductPicker";
-import ProductDetails from "./components/ProductDetails/ProductDetails";
-import { ProductListProvider } from "./ProductListContext";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Checkout from "./components/Checkout/Checkout";
 import SubmitForm from "./components/Checkout/SubmitForm";
+import Footer from "./components/Footer/Footer";
+import Home from "./components/Home";
+import NavBar from "./components/NavBar/NavBar";
+import ProductDetails from "./components/ProductDetails/ProductDetails";
+import ProductPicker from "./components/ProductPicker/ProductPicker";
+import { OrderItemProvider } from "./OrderItemContext";
+import { ProductListProvider } from "./ProductListContext";
 
 const App = () => {
   /*const [products, setProducts] = useState([

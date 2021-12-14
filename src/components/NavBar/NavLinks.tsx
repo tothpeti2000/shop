@@ -16,7 +16,9 @@ const NavLinks = () => {
       <Link to="/products">
         <NavItem>Shop</NavItem>
       </Link>
-      <NavItem>About AS</NavItem>
+      <Link to="/">
+        <NavItem>About AS</NavItem>
+      </Link>
       <LoginButton />
       <Cart />
     </Flex>

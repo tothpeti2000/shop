@@ -1,9 +1,9 @@
 import { Flex } from "@chakra-ui/layout";
 import React from "react";
-import ProductList from "../ProductList/ProductList";
-import Filter from "../Filter/Filter";
-import FilterHeader from "./FilterHeader";
 import { ProductListProvider } from "../../ProductListContext";
+import Filter from "../Filter/Filter";
+import ProductList from "../ProductList/ProductList";
+import FilterHeader from "./FilterHeader";
 
 const ProductPicker = () => {
   return (

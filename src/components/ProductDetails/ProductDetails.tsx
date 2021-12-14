@@ -1,4 +1,3 @@
-import { Button } from "@chakra-ui/button";
 import { Image } from "@chakra-ui/image";
 import { Box, Flex, Heading, Text } from "@chakra-ui/layout";
 import { Skeleton } from "@chakra-ui/skeleton";
@@ -7,7 +6,6 @@ import { useParams } from "react-router-dom";
 import IParams from "../../interfaces/IParams";
 import IProduct from "../../interfaces/IProduct";
 import { useOrderItemContext } from "../../OrderItemContext";
-import QuantityPicker from "../Cart/QuantityPicker";
 import AddToCartButton from "../ProductList/AddToCartButton";
 import RatingStars from "./RatingStars";
 

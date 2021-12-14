@@ -1,13 +1,16 @@
-import { Box, Link, Text } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import React, { FC } from "react";
 
 const NavItem: FC = ({ children }) => {
   return (
-    <Link _hover={{ color: "grey", textDecoration: "none" }}>
-      <Box width="100px" textAlign="center">
-        {children}
-      </Box>
-    </Link>
+    <Box
+      width="100px"
+      textAlign="center"
+      _hover={{ color: "grey" }}
+      transition="0.5s"
+    >
+      {children}
+    </Box>
   );
 };
 

@@ -5,7 +5,6 @@ import { useProductListContext } from "../../ProductListContext";
 import ProductListItem from "./ProductListItem";
 
 const ProductList = () => {
-  //const [products, setProducts] = useState<IProduct[]>([]);
   const { products, InitProducts } = useProductListContext();
   const [isLoaded, setIsLoaded] = useState(false);
 

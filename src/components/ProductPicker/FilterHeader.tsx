@@ -1,5 +1,5 @@
 import { Flex, Heading, Select } from "@chakra-ui/react";
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent } from "react";
 import { useProductListContext } from "../../ProductListContext";
 
 const FilterHeader = () => {

@@ -8,7 +8,7 @@ const useOrderItemContextValue = () => {
   const AddItem = (id: number, title: string, price: number) => {
     const items = orderItems.filter((orderItem) => orderItem.id === id);
 
-    if (items.length == 0) {
+    if (items.length === 0) {
       const item: ICartItem = { id, title, price, quantity: 1 };
 
       setOrderItems([...orderItems, item]);
@@ -29,7 +29,7 @@ const useOrderItemContextValue = () => {
     let quantity = 1;
 
     for (let i = 0; i < orderItems.length; i++) {
-      if (orderItems[i].id == id) {
+      if (orderItems[i].id === id) {
         idx = i;
         price = orderItems[i].price;
         quantity = orderItems[i].quantity;
