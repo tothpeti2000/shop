@@ -5,25 +5,13 @@ import CartSummary from "./CartSummary";
 import OrderSummary from "./OrderSummary";
 
 const Checkout = () => {
-  const { orderItems } = useOrderItemContext();
-
-  const GetTotal = (): number => {
-    let sum = 0;
-
-    orderItems.forEach(
-      (orderItem) => (sum += orderItem.quantity * orderItem.price)
-    );
-
-    return sum;
-  };
-
-  const [total, setTotal] = useState(GetTotal());
+  const { orderItems, total } = useOrderItemContext();
 
   return (
-    <Flex justifyContent="space-evenly" minH="calc(100vh - 100px)">
+    <Box w="50%" minH="calc(100vh - 100px)" mx="10%">
       <CartSummary orderItems={orderItems} />
       <OrderSummary total={total} />
-    </Flex>
+    </Box>
   );
 };
 

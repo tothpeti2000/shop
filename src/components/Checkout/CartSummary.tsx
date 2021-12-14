@@ -9,11 +9,13 @@ interface ICartSummaryProps {
 
 const CartSummary = (props: ICartSummaryProps) => {
   return (
-    <Box p={10} border="1px solid black">
+    <Box p={10}>
       <Heading>My Cart</Heading>
-      {props.orderItems.map((item) => {
-        return <CartItem {...item} />;
-      })}
+      <Box mt={5}>
+        {props.orderItems.map((item) => {
+          return <CartItem key={item.id} {...item} />;
+        })}
+      </Box>
     </Box>
   );
 };

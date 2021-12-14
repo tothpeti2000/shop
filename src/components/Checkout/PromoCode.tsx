@@ -6,33 +6,64 @@ import {
   Text,
   Input,
   Button,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
 } from "@chakra-ui/react";
 import { RiCoupon3Line } from "react-icons/ri";
-import React, { useState } from "react";
+import React, { MutableRefObject, useRef, useState } from "react";
 
 interface IProps {
   OnClick: (input: string) => void;
 }
 
 const PromoCode = (props: IProps) => {
-  const { isOpen, onToggle } = useDisclosure();
+  const { isOpen, onClose, onToggle } = useDisclosure();
   const [input, setInput] = useState("");
+  const initialRef = useRef() as MutableRefObject<HTMLInputElement>;
 
   const HandleClick = () => {
     props.OnClick(input);
     setInput("");
+    onClose();
   };
 
   return (
-    <Box>
+    <Box mb={5}>
       <Icon as={RiCoupon3Line} />
-      <Text as="button" onClick={onToggle}>
+      <Text as="button" color="red" onClick={onToggle}>
         Enter a promo code
       </Text>
-      <Collapse in={isOpen} animateOpacity>
-        <Input value={input} onChange={(e) => setInput(e.target.value)} />
-        <Button onClick={HandleClick}>Apply</Button>
-      </Collapse>
+
+      <Modal
+        initialFocusRef={initialRef}
+        isCentered
+        isOpen={isOpen}
+        onClose={onClose}
+      >
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Apply Code</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Input
+              value={input}
+              ref={initialRef}
+              onChange={(e) => setInput(e.target.value)}
+            />
+          </ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme="blue" onClick={HandleClick}>
+              Apply
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Box>
   );
 };

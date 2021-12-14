@@ -14,6 +14,7 @@ import ProductPicker from "./components/ProductPicker/ProductPicker";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
 import { ProductListProvider } from "./ProductListContext";
 import Checkout from "./components/Checkout/Checkout";
+import SubmitForm from "./components/Checkout/SubmitForm";
 
 const App = () => {
   /*const [products, setProducts] = useState([
@@ -77,6 +78,9 @@ const App = () => {
             </Route>
             <Route path="/checkout">
               <Checkout />
+            </Route>
+            <Route path="/submit">
+              <SubmitForm />
             </Route>
           </Switch>
         </Router>
