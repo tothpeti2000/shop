@@ -1,5 +1,5 @@
-import { Box, Flex } from "@chakra-ui/layout";
-import React, { useState } from "react";
+import { Box } from "@chakra-ui/layout";
+import React from "react";
 import { useOrderItemContext } from "../../OrderItemContext";
 import CartSummary from "./CartSummary";
 import OrderSummary from "./OrderSummary";

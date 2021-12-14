@@ -1,21 +1,21 @@
-import React from "react";
-import { Fab } from "react-tiny-fab";
-import { FiMail } from "react-icons/fi";
 import {
   Button,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalCloseButton,
-  ModalBody,
   FormControl,
   FormLabel,
   Input,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
   ModalFooter,
-  useDisclosure,
+  ModalHeader,
+  ModalOverlay,
   Textarea,
+  useDisclosure,
 } from "@chakra-ui/react";
+import React from "react";
+import { FiMail } from "react-icons/fi";
+import { Fab } from "react-tiny-fab";
 
 const ContactForm = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();

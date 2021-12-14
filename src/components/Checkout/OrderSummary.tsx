@@ -1,11 +1,4 @@
-import {
-  Box,
-  Button,
-  Divider,
-  Heading,
-  Text,
-  useDisclosure,
-} from "@chakra-ui/react";
+import { Box, Button, Divider, Heading, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import PromoCode from "./PromoCode";

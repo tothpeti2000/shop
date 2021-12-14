@@ -1,5 +1,5 @@
 import { Stack } from "@chakra-ui/layout";
-import { RadioGroup, Radio } from "@chakra-ui/radio";
+import { Radio, RadioGroup } from "@chakra-ui/radio";
 import React, { ChangeEvent, useState } from "react";
 import { useProductListContext } from "../../ProductListContext";
 

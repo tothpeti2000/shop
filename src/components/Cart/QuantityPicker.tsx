@@ -8,11 +8,11 @@ import {
 import React, { useState } from "react";
 import { useOrderItemContext } from "../../OrderItemContext";
 
-interface IQuantityPickerProps {
+interface IProps {
   ID: number;
 }
 
-const QuantityPicker = (props: IQuantityPickerProps) => {
+const QuantityPicker = (props: IProps) => {
   const { GetItemQuantity, UpdateItemQuantity } = useOrderItemContext();
   const [value, setValue] = useState(GetItemQuantity(props.ID));
 

@@ -21,14 +21,6 @@ const Cart = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { orderItems, total } = useOrderItemContext();
 
-  const GetSum = (): number => {
-    let sum = 0;
-
-    orderItems.forEach((item) => (sum += item.price * item.quantity));
-
-    return parseFloat(sum.toFixed(2));
-  };
-
   return (
     <>
       <IconButton

@@ -1,11 +1,8 @@
 import {
   Box,
-  Collapse,
-  Icon,
-  useDisclosure,
-  Text,
-  Input,
   Button,
+  Icon,
+  Input,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -13,9 +10,11 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  Text,
+  useDisclosure,
 } from "@chakra-ui/react";
-import { RiCoupon3Line } from "react-icons/ri";
 import React, { MutableRefObject, useRef, useState } from "react";
+import { RiCoupon3Line } from "react-icons/ri";
 
 interface IProps {
   OnClick: (input: string) => void;
