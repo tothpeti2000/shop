@@ -23,7 +23,7 @@ const AddToCartButton = (props: Props) => {
     });
   };
 
-  const OnClick = () => {
+  const HandleClick = () => {
     AddItem(props.id, props.title, props.price);
     ShowToast();
   };
@@ -33,7 +33,7 @@ const AddToCartButton = (props: Props) => {
       colorScheme="red"
       w="100%"
       leftIcon={<Icon as={FaCartPlus} />}
-      onClick={OnClick}
+      onClick={HandleClick}
     >
       Add to cart
     </Button>

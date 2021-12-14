@@ -3,6 +3,7 @@ import ICartItem from "./interfaces/ICartItem";
 
 const useOrderItemContextValue = () => {
   const [orderItems, setOrderItems] = useState<ICartItem[]>([]);
+  const [total, setTotal] = useState(0);
 
   const AddItem = (id: number, title: string, price: number) => {
     const items = orderItems.filter((orderItem) => orderItem.id === id);
@@ -18,14 +19,20 @@ const useOrderItemContextValue = () => {
 
       setOrderItems(copy);
     }
+
+    setTotal(FormatSum(total + price));
   };
 
   const DeleteItem = (id: number) => {
     let idx: number = 0;
+    let price = 0;
+    let quantity = 1;
 
     for (let i = 0; i < orderItems.length; i++) {
       if (orderItems[i].id == id) {
         idx = i;
+        price = orderItems[i].price;
+        quantity = orderItems[i].quantity;
       }
     }
 
@@ -33,6 +40,7 @@ const useOrderItemContextValue = () => {
     newOrderItems.splice(idx, 1);
 
     setOrderItems(newOrderItems);
+    setTotal(FormatSum(total - quantity * price));
   };
 
   const GetItemQuantity = (ID: number): number => {
@@ -46,17 +54,29 @@ const useOrderItemContextValue = () => {
   };
 
   const UpdateItemQuantity = (ID: number, quantity: number) => {
+    let price = 0;
+    let delta = 0;
+
     for (let i = 0; i < orderItems.length; i++) {
       if (orderItems[i].id === ID) {
+        price = orderItems[i].price;
+        delta = quantity - orderItems[i].quantity;
+
         orderItems[i].quantity = quantity;
       }
     }
 
     setOrderItems([...orderItems]);
+    setTotal(FormatSum(total + delta * price));
+  };
+
+  const FormatSum = (sum: number): number => {
+    return parseFloat(sum.toFixed(2));
   };
 
   return {
     orderItems,
+    total,
     AddItem,
     DeleteItem,
     UpdateItemQuantity,

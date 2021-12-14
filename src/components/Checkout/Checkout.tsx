@@ -1,20 +1,28 @@
 import { Box, Flex } from "@chakra-ui/layout";
-import React from "react";
+import React, { useState } from "react";
 import { useOrderItemContext } from "../../OrderItemContext";
 import CartSummary from "./CartSummary";
+import OrderSummary from "./OrderSummary";
 
 const Checkout = () => {
   const { orderItems } = useOrderItemContext();
 
+  const GetTotal = (): number => {
+    let sum = 0;
+
+    orderItems.forEach(
+      (orderItem) => (sum += orderItem.quantity * orderItem.price)
+    );
+
+    return sum;
+  };
+
+  const [total, setTotal] = useState(GetTotal());
+
   return (
-    <Flex
-      justifyContent="space-between"
-      minH="calc(100vh - 100px)"
-      px="10%"
-      border="1px solid black"
-    >
+    <Flex justifyContent="space-evenly" minH="calc(100vh - 100px)">
       <CartSummary orderItems={orderItems} />
-      <Box border="1px solid black">Order Summary</Box>
+      <OrderSummary total={total} />
     </Flex>
   );
 };

@@ -14,13 +14,20 @@ import {
 import React from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { useOrderItemContext } from "../../OrderItemContext";
-import GetSum from "../../Utils";
 import CartItem from "./CartItem";
 import Summary from "./Summary";
 
 const Cart = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { orderItems } = useOrderItemContext();
+  const { orderItems, total } = useOrderItemContext();
+
+  const GetSum = (): number => {
+    let sum = 0;
+
+    orderItems.forEach((item) => (sum += item.price * item.quantity));
+
+    return parseFloat(sum.toFixed(2));
+  };
 
   return (
     <>
@@ -51,7 +58,7 @@ const Cart = () => {
           </DrawerBody>
 
           <DrawerFooter>
-            <Summary total={GetSum(orderItems)} onClick={onClose} />
+            <Summary total={total} onClick={onClose} />
           </DrawerFooter>
         </DrawerContent>
       </Drawer>

@@ -6,7 +6,7 @@ import { useOrderItemContext } from "../../OrderItemContext";
 import QuantityPicker from "./QuantityPicker";
 
 const CartItem = (props: ICartItem) => {
-  const { DeleteItem, UpdateItemQuantity } = useOrderItemContext();
+  const { DeleteItem } = useOrderItemContext();
 
   return (
     <Flex
@@ -21,7 +21,7 @@ const CartItem = (props: ICartItem) => {
       <Flex direction="column" align="flex-start" flex="2">
         <Text>{props.title}</Text>
         <Text fontWeight="bold">{props.price}$</Text>
-        <QuantityPicker ID={props.id} onChange={UpdateItemQuantity} />
+        <QuantityPicker ID={props.id} />
       </Flex>
       <CloseButton alignSelf="start" onClick={() => DeleteItem(props.id)} />
     </Flex>

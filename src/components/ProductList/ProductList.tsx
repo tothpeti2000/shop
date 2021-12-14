@@ -25,15 +25,7 @@ const ProductList = () => {
     <Skeleton isLoaded={isLoaded} flex="3" minH="100vh">
       <Flex wrap="wrap" justifyContent="space-around">
         {products.map((p) => {
-          return (
-            <ProductListItem
-              key={p.id}
-              id={p.id}
-              image={p.image}
-              title={p.title}
-              price={p.price}
-            />
-          );
+          return <ProductListItem key={p.id} {...p} />;
         })}
       </Flex>
     </Skeleton>

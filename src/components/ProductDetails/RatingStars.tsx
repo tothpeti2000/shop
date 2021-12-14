@@ -1,6 +1,9 @@
 import React from "react";
 import { RatingView } from "react-simple-star-rating";
-import IRatingProps from "../../interfaces/IRatingProps";
+
+interface IRatingProps {
+  ratingValue: number;
+}
 
 const RatingStars = (props: IRatingProps) => {
   return <RatingView ratingValue={props.ratingValue} />;

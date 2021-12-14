@@ -21,6 +21,7 @@ const ProductDetails = () => {
     price: 0,
     title: "",
     rating: { count: 0, rate: 0 },
+    quantity: 1,
   });
   const { GetItemQuantity } = useOrderItemContext();
   const [isLoaded, setIsLoaded] = useState(false);
